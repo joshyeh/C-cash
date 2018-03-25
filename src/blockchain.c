@@ -142,7 +142,7 @@ void main(){
     bcPrint(chain);
     assert(bcLen(chain)==0);
     printf("Test 1 Passed!\n\n");
-    
+    // Transacation list 1
     TransactionList list1 = tlistCreate();                                      // Recording a list of transactions
     tlistAppend(&list1, "Abigail", 29.54, "Bob");
     tlistAppend(&list1, "Bob", 254.79, "Camilla");
@@ -152,7 +152,7 @@ void main(){
     block1->proof_of_work = puzzleMine(puzzle);                                  
     bool valid = blkIsValid(*block1);                                           // Validate the block  
     assert(valid == true);                                                      
-    
+    // Transaction list 2
     TransactionList list2 = tlistCreate();                                      // Another list of transactions
     tlistAppend(&list2, "Abigail", 200.50, "Camilla");
     tlistAppend(&list2, "Bob", 156.50, "Drake");
