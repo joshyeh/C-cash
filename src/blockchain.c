@@ -1,5 +1,5 @@
 /**
- *  BlockChain ADT and Test : private implementation / algorithms
+ *  BlockChain ADT: private implementation / algorithms
  *  
  *  COMP220: Assignment 3
  *  Author: Joshua Yeh  
@@ -30,6 +30,7 @@ BlockChain bcNew( ){
     BlockChain chain;
     chain.head=NULL;
     chain.tail=NULL;
+    return chain;
 }
 
 /*
@@ -40,10 +41,10 @@ void bcDelete( BlockChain *chain ){
     Block_t* cur = chain->head;
     while (cur != NULL){
         cur = cur->next;
-        free(chain->head);     //free memory and data
+        free(chain->head);     //free memory (alternative: blkDelete(Block_t* block))
         chain->head=cur;
     }
-    chain->head=NULL;
+    chain->head=NULL;          //reinitalize
     chain->tail=NULL;
 } 
 
@@ -81,7 +82,7 @@ int bcLen( const BlockChain chain ){
 bool chainIsValid(const BlockChain chain){
     Block_t* cur = chain.head;
     while (cur != NULL){
-        if(blkIsValid(*cur)==false){
+        if(blkIsValid(*cur)==false){            //Checks that each block is valid
             return false;
         }
         cur = cur->next;
@@ -94,7 +95,7 @@ bool chainIsValid(const BlockChain chain){
  * Return a pointer to the chain's tail Block
  */
 Block_t* bcTail(const BlockChain chain){
-    Block_t* ptr = chain.tail;
+    Block_t* ptr = chain.tail;                      
     return ptr;
 }
 
