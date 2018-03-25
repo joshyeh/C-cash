@@ -44,7 +44,7 @@ int bcLen( const BlockChain chain );
 /*
  *  Return true iff blkIsValid(block) for every block in the chain
  */
-bool blkIsValid(const BlockChain chain);
+bool chainIsValid(const BlockChain chain);
 
 
 /*
@@ -55,6 +55,6 @@ Block_t* bcTail(const BlockChain chain);
 /*
  * Append the given block to the chain 
  *    iff blkValidates(new_block, bcTail->hash, new_block->proof_of_work)
- * POST: bcTail(*chain) == new_block && blkIsValid(*new_block)
+ * POST: bcTail(*chain) == new_block && chainIsValid(*new_block)
  */
 void bcAppend( BlockChain *chain, Block_t* new_block );
